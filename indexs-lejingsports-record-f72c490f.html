@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+    <title>乐竞体育 · 竞技观察</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f4f9fc;
+            color: #1a2e3d;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1160px;
+            margin: 0 auto;
+            padding: 1.5rem 1.2rem;
+        }
+
+        /* 杂志风格 hero */
+        .magazine-hero {
+            background: linear-gradient(145deg, #f0f7fa 0%, #d9eaf0 100%);
+            border-radius: 2.5rem 0 2.5rem 0;
+            padding: 3.2rem 2.2rem;
+            margin: 1.8rem 0 2.5rem 0;
+            position: relative;
+            box-shadow: 0 6px 18px rgba(0, 40, 50, 0.06);
+            border-left: 6px solid #2f9e9e;
+        }
+
+        .magazine-hero::after {
+            content: "✦ 专题 · 竞技前沿";
+            position: absolute;
+            right: 2rem;
+            top: 1.2rem;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            color: #2f8a8a;
+            background: rgba(255, 255, 255, 0.7);
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
+        }
+
+        .hero-title {
+            font-size: 2.3rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            color: #0b3b44;
+            max-width: 80%;
+        }
+
+        .hero-sub {
+            margin-top: 1rem;
+            font-size: 1rem;
+            color: #2b5f6b;
+            border-left: 3px solid #3ba6a6;
+            padding-left: 1.2rem;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 0 12px 12px 0;
+            display: inline-block;
+            padding: 0.6rem 1.5rem 0.6rem 1.2rem;
+        }
+
+        /* 背景说明模块 — 网格卡片风格 */
+        .background-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.8rem;
+            margin: 2.8rem 0;
+        }
+
+        .bg-card {
+            background: white;
+            border-radius: 24px 8px 24px 8px;
+            padding: 1.8rem 1.6rem;
+            box-shadow: 0 4px 12px rgba(30, 60, 70, 0.04);
+            border: 1px solid #d7e9ed;
+            transition: all 0.15s ease;
+        }
+
+        .bg-card:hover {
+            border-color: #87c4c4;
+            box-shadow: 0 8px 20px rgba(37, 99, 99, 0.08);
+        }
+
+        .bg-card .card-icon {
+            display: inline-block;
+            font-size: 1.6rem;
+            margin-bottom: 0.5rem;
+            color: #297a7a;
+        }
+
+        .bg-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin: 0.3rem 0 0.8rem 0;
+            color: #12424e;
+            border-bottom: 2px solid #c3e0e0;
+            padding-bottom: 0.25rem;
+            display: inline-block;
+        }
+
+        .bg-card p {
+            font-size: 0.95rem;
+            color: #2c4a55;
+        }
+
+        /* 三段自然介绍 (卡片连通) */
+        .intro-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 1.6rem;
+            margin: 2.8rem 0;
+        }
+
+        .intro-item {
+            display: flex;
+            flex-wrap: wrap;
+            background: white;
+            border-radius: 18px;
+            padding: 1.8rem 2rem;
+            border-left: 8px solid;
+            border-color: #41a8a8;
+            box-shadow: 0 2px 10px rgba(20, 75, 75, 0.04);
+        }
+
+        .intro-item .num {
+            font-size: 1.8rem;
+            font-weight: 300;
+            color: #4baaaa;
+            margin-right: 1.5rem;
+            min-width: 2.2rem;
+        }
+
+        .intro-item .content {
+            flex: 1;
+        }
+
+        .intro-item .content h4 {
+            font-weight: 600;
+            font-size: 1.2rem;
+            color: #10424d;
+            margin-bottom: 0.3rem;
+        }
+
+        .intro-item .content p {
+            font-size: 0.95rem;
+            color: #2b4f58;
+        }
+
+        /* 链接融入句子 */
+        .inline-link {
+            color: #1c7474;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dashed #7bbfbf;
+            padding: 0 2px;
+            transition: 0.1s;
+        }
+
+        .inline-link:hover {
+            background: #dff3f3;
+            border-color: #1f7d7d;
+            border-radius: 4px;
+        }
+
+        /* 特点/场景混合卡片 (杂志 grid) */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin: 2.5rem 0;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 18px;
+            padding: 1.8rem 1.2rem;
+            text-align: center;
+            border: 1px solid #d2e4e8;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+            transition: 0.15s;
+        }
+
+        .feature-card:hover {
+            border-color: #3d9e9e;
+            transform: translateY(-2px);
+        }
+
+        .feature-card .emoji-badge {
+            font-size: 2.2rem;
+            display: block;
+            margin-bottom: 0.6rem;
+        }
+
+        .feature-card h5 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: #17545e;
+        }
+
+        .feature-card p {
+            font-size: 0.9rem;
+            color: #3a606b;
+        }
+
+        /* FAQ 摘要 */
+        .faq-summary {
+            background: #e7f2f5;
+            border-radius: 28px 8px 28px 8px;
+            padding: 2rem 2rem;
+            margin: 2.8rem 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            border: 1px solid #b1d2d6;
+        }
+
+        .faq-block {
+            flex: 1 1 200px;
+            margin: 0.5rem 0.5rem;
+        }
+
+        .faq-block h6 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0d454f;
+            margin-bottom: 0.4rem;
+            letter-spacing: 0.3px;
+        }
+
+        .faq-block p {
+            font-size: 0.9rem;
+            color: #2d525c;
+        }
+
+        .faq-block a {
+            color: #1a7272;
+            text-decoration: underline 1px dotted #6eb0b0;
+        }
+
+        /* 页尾访问提示 */
+        .site-footer {
+            text-align: center;
+            padding: 2.2rem 1rem 1rem;
+            border-top: 1px solid #cae0e5;
+            margin-top: 2.5rem;
+        }
+
+        .site-footer p {
+            font-size: 0.95rem;
+            color: #43626b;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .site-footer .brand-highlight {
+            color: #1b6e6e;
+            font-weight: 500;
+        }
+
+        /* 移动端响应 */
+        @media (max-width: 700px) {
+            .hero-title {
+                font-size: 1.8rem;
+                max-width: 100%;
+            }
+
+            .magazine-hero {
+                padding: 2rem 1.4rem;
+            }
+
+            .magazine-hero::after {
+                position: static;
+                display: inline-block;
+                margin-top: 0.5rem;
+                background: transparent;
+                padding-left: 0;
+                font-size: 0.7rem;
+            }
+
+            .background-grid {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 1rem;
+            }
+
+            .intro-item {
+                flex-direction: column;
+                padding: 1.2rem;
+            }
+
+            .intro-item .num {
+                margin-right: 0;
+                margin-bottom: 0.2rem;
+            }
+
+            .faq-summary {
+                flex-direction: column;
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-title {
+                font-size: 1.6rem;
+            }
+
+            .container {
+                padding: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- 首页横幅（杂志hero） -->
+    <header class="magazine-hero">
+        <h1 class="hero-title">竞技的温度 · 数据的脉搏</h1>
+        <div class="hero-sub">专题 · 从赛事观察到运动文化</div>
+    </header>
+
+    <!-- 背景说明：网格卡片 -->
+    <div class="background-grid">
+        <div class="bg-card">
+            <span class="card-icon">⚡</span>
+            <h3>视野背景</h3>
+            <p>现代体育已不止于胜负。战术分析、运动员发展、赛场经济共同构成更立体的竞技图景。<a href="https://indexs-lejingsports.com" class="inline-link">乐竞体育</a>从这一视角出发，聚合赛事数据与行业解读，帮助爱好者与从业者获得更扎实的信息支撑。</p>
+        </div>
+        <div class="bg-card">
+            <span class="card-icon">📊</span>
+            <h3>信息密度</h3>
+            <p>在信息过载的时代，深度比速度更珍贵。我们关注赛事背后的逻辑：训练周期、赛制演变、运动科学，而非仅仅结果。围绕专业内容展开，保持克制而准确。</p>
+        </div>
+    </div>
+
+    <!-- 三段自然介绍（杂志纵向卡片） -->
+    <div class="intro-stack">
+        <div class="intro-item">
+            <span class="num">01</span>
+            <div class="content">
+                <h4>数据维度的竞技叙事</h4>
+                <p>每一场比赛都产生数百项隐性数据：跑动距离、对抗成功率、阵型变化。透过数字观察比赛，可以发现更多战术意图与决策逻辑。由<a href="https://indexs-lejingsports.com" class="inline-link">乐竞体育</a>整理的观察框架，让数字回归竞技语境，而非冰冷罗列。</p>
+            </div>
+        </div>
+        <div class="intro-item">
+            <span class="num">02</span>
+            <div class="content">
+                <h4>运动项目背后的共同规律</h4>
+                <p>足球的攻守转换、篮球的挡拆体系、网球的分点策略——不同项目看似迥异，却共享节奏控制、空间博弈与心理管理的基本原理。跨项目视角往往带来意想不到的启发，而这正是专题内容尝试挖掘的方向。</p>
+            </div>
+        </div>
+        <div class="intro-item">
+            <span class="num">03</span>
+            <div class="content">
+                <h4>实战与认知的相互滋养</h4>
+                <p>无论是职业教练还是业余爱好者，深入理解运动逻辑都能提升参与质量。赛事复盘、训练理念、装备科技的演变——这些内容共同构建了一个可实践的知识生态。我们相信，认知升级本身也是竞技的一部分。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 特点/场景混合卡片 -->
+    <div class="feature-grid">
+        <div class="feature-card">
+            <span class="emoji-badge">🏟️</span>
+            <h5>赛事纵深</h5>
+            <p>从五大联赛到新兴赛事，提供体系化的赛前背景与赛后梳理。</p>
+        </div>
+        <div class="feature-card">
+            <span class="emoji-badge">🧠</span>
+            <h5>认知工具</h5>
+            <p>运动心理学、战术图解、视频分析教程——将专业门槛转化为可读内容。</p>
+        </div>
+        <div class="feature-card">
+            <span class="emoji-badge">🌐</span>
+            <h5>跨文化视野</h5>
+            <p>不同地区的青训模式、联赛结构与球迷文化，折射多元体育生态。</p>
+        </div>
+    </div>
+
+    <!-- FAQ 摘要 + 访问提示 -->
+    <div class="faq-summary">
+        <div class="faq-block">
+            <h6>常见方向</h6>
+            <p>赛事分析 · 运动科学 · 产业观察 · 青训记录<br><a href="https://indexs-lejingsports.com" class="inline-link">乐竞体育</a>持续更新上述主题。</p>
+        </div>
+        <div class="faq-block">
+            <h6>内容特点</h6>
+            <p>基于事实与数据，避免情绪渲染。每篇内容经过交叉验证，追求可溯源的信息质量。</p>
+        </div>
+        <div class="faq-block">
+            <h6>适合谁读</h6>
+            <p>体育爱好者、教练、运动员、体育媒体从业者，以及对竞技深层逻辑感兴趣的读者。</p>
+        </div>
+    </div>
+
+    <!-- 页尾访问提示 -->
+    <footer class="site-footer">
+        <p>如果你希望获取更多关于竞技数据、赛事观察与运动文化的系统内容，欢迎浏览 <span class="brand-highlight"><a href="https://indexs-lejingsports.com" class="inline-link">乐竞体育</a></span> 专题页面。在这里，信息经过筛选与组织，以更贴近思考的方式呈现。</p>
+        <p style="margin-top: 1.5rem; font-size: 0.8rem; color: #6b8f98;">© 持续更新的体育内容记录 · 2025</p>
+    </footer>
+</div>
+</body>
+</html>
