@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MK体育 · 杂志专题</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f7f3ed;
+            color: #2d2a24;
+            font-family: 'Georgia', 'Times New Roman', '宋体', serif;
+            line-height: 1.7;
+            padding: 2rem 1.5rem 3rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .page {
+            max-width: 920px;
+            margin: 0 auto;
+            width: 100%;
+            background: rgba(255, 252, 247, 0.7);
+            padding: 2rem 2.2rem 2.8rem;
+            border-radius: 2px;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.03);
+        }
+
+        /* 杂志首页横幅 */
+        .hero {
+            text-align: center;
+            padding: 3.5rem 1rem 2.2rem;
+            border-bottom: 1px solid #d9cfc0;
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+
+        .hero::after {
+            content: "✦";
+            display: block;
+            color: #b3a187;
+            font-size: 1.1rem;
+            letter-spacing: 6px;
+            margin-top: 0.3rem;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            font-weight: 400;
+            letter-spacing: 4px;
+            color: #3b352d;
+            margin-bottom: 0.6rem;
+            font-family: 'Georgia', 'Times New Roman', serif;
+        }
+
+        .hero .sub {
+            font-size: 1rem;
+            color: #7d7262;
+            letter-spacing: 2px;
+            font-style: italic;
+            background: #eae3d8;
+            display: inline-block;
+            padding: 0.2rem 1.8rem;
+            border-radius: 30px;
+            margin-top: 0.2rem;
+        }
+
+        /* 背景说明 —— 引子 */
+        .intro-block {
+            background: #f1ebe2;
+            padding: 1.6rem 2rem;
+            border-left: 4px solid #b0987c;
+            margin-bottom: 2.8rem;
+            font-size: 1.05rem;
+            border-radius: 0 8px 8px 0;
+            color: #3f3a32;
+        }
+
+        .intro-block p {
+            margin-bottom: 0.8rem;
+        }
+
+        .intro-block p:last-child {
+            margin-bottom: 0;
+        }
+
+        .intro-block .quote-mark {
+            font-size: 2.4rem;
+            line-height: 0.8;
+            color: #b7a48b;
+            margin-right: 6px;
+            vertical-align: -6px;
+        }
+
+        /* 三段自然介绍 */
+        .essay-section {
+            display: flex;
+            flex-direction: column;
+            gap: 2.2rem;
+            margin-bottom: 2.4rem;
+        }
+
+        .essay-card {
+            padding: 0.2rem 0;
+        }
+
+        .essay-card h2 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            border-bottom: 1px dashed #d6ccbd;
+            padding-bottom: 0.3rem;
+            margin-bottom: 1.1rem;
+            color: #4b4237;
+            letter-spacing: 1px;
+            font-family: 'Georgia', serif;
+        }
+
+        .essay-card p {
+            margin-bottom: 1rem;
+            text-indent: 2em;
+            font-size: 1.02rem;
+        }
+
+        .essay-card p:last-of-type {
+            margin-bottom: 0.2rem;
+        }
+
+        .inset-quote {
+            background: #f3eee6;
+            padding: 1rem 1.8rem;
+            margin: 1.2rem 0 1rem 0.8rem;
+            border-radius: 30px 8px 8px 30px;
+            border-left: 3px solid #cbb9a4;
+            font-style: italic;
+            color: #5f5547;
+            font-size: 0.98rem;
+            text-indent: 0;
+        }
+
+        .inset-quote::before {
+            content: "“";
+            font-size: 1.8rem;
+            color: #b4a084;
+            margin-right: 4px;
+        }
+
+        /* 提示框 */
+        .notice-box {
+            background: #e6ddd1;
+            border: 1px solid #cec0ae;
+            padding: 1.5rem 2rem;
+            margin: 2.8rem 0 2.2rem;
+            border-radius: 2px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 0.4rem 0.2rem;
+            font-size: 1.05rem;
+        }
+
+        .notice-box .label {
+            font-weight: 400;
+            letter-spacing: 2px;
+            color: #5b4f3d;
+            background: #d6cabb;
+            padding: 0.1rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-right: 0.6rem;
+            text-transform: uppercase;
+        }
+
+        .notice-box a {
+            color: #3f3a32;
+            text-decoration: none;
+            border-bottom: 1px solid #9e8f7b;
+            transition: border-color 0.2s, background 0.2s;
+            padding: 0 2px;
+        }
+
+        .notice-box a:hover {
+            border-bottom-color: #6b5d4b;
+            background: #d8cdbc;
+        }
+
+        /* 页尾访问提示 */
+        .footer-note {
+            border-top: 1px solid #d9cfc0;
+            padding-top: 1.8rem;
+            margin-top: 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.3rem;
+            color: #6c6254;
+            font-size: 0.95rem;
+        }
+
+        .footer-note .site-link {
+            font-size: 1.3rem;
+            letter-spacing: 3px;
+            font-family: 'Georgia', serif;
+            background: #ebe3d6;
+            padding: 0.2rem 2rem;
+            border-radius: 40px;
+            transition: background 0.2s;
+        }
+
+        .footer-note .site-link a {
+            color: #3b352d;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+        }
+
+        .footer-note .site-link a:hover {
+            border-bottom-color: #7a6b58;
+        }
+
+        .footer-note .meta {
+            font-size: 0.85rem;
+            color: #93887a;
+            margin-top: 0.2rem;
+            letter-spacing: 1px;
+        }
+
+        /* 响应式 */
+        @media (max-width: 640px) {
+            body {
+                padding: 1rem 0.8rem;
+            }
+            .page {
+                padding: 1.5rem 1rem;
+            }
+            .hero h1 {
+                font-size: 2.4rem;
+            }
+            .hero .sub {
+                font-size: 0.9rem;
+                padding: 0.2rem 1.2rem;
+            }
+            .intro-block {
+                padding: 1.2rem 1.2rem;
+            }
+            .essay-card h2 {
+                font-size: 1.3rem;
+            }
+            .notice-box {
+                padding: 1rem 1.2rem;
+                flex-direction: column;
+            }
+            .inset-quote {
+                margin-left: 0;
+            }
+            .footer-note .site-link {
+                font-size: 1.1rem;
+                padding: 0.2rem 1.5rem;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .essay-card p {
+                text-indent: 1.2em;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- 首页横幅 -->
+    <header class="hero">
+        <h1>MK体育</h1>
+        <div class="sub">运动 · 叙事 · 日常</div>
+    </header>
+
+    <!-- 背景说明 -->
+    <div class="intro-block">
+        <p><span class="quote-mark">“</span>人们谈论体育时，往往先谈起比分与纪录。但体育更深的纹理，藏在那些非比赛的时刻：清晨跑道上的人影，社区球场傍晚的光线，以及一个人默默练习时的呼吸。MK体育关注的，正是这些不被聚光灯笼罩，却构成运动本质的瞬间。</p>
+        <p>这份杂志式页面尝试用文字而非表格，去接近体育的另一种温度——它不制造喧哗，只提供一种观看的角度。</p>
+    </div>
+
+    <!-- 三段自然介绍 -->
+    <div class="essay-section">
+
+        <div class="essay-card">
+            <h2>一种观看的距离</h2>
+            <p>体育报道的传统方式，往往将镜头推得很近，捕捉汗水、嘶吼与决定性的一秒。但有时候，拉远一点反而能看见更多：球场边落满叶子的长椅，赛后空无一人的更衣室通道，记分牌归零后重新亮起的灯光。这些画面不曾被计入任何技术统计，却是构成体育记忆的真正底片。</p>
+            <p>MK体育更愿意保留这样的距离。不急着下判断，不把每一次触球都渲染成史诗。在叙述中留下空隙，让读者自己走进去，找到与自身经验相连的那部分。</p>
+        </div>
+
+        <div class="essay-card">
+            <h2>场地，以及场地之外</h2>
+            <p>一块标准篮球场的尺寸是28米乘15米，但它的边界从不以底线与边线为限。球场上空的光线、木质地板的气味、四周墙壁的回声，这些无形之物共同参与了每一场比赛。同样，体育的影响力也溢出场地本身：它进入清晨的闹钟，进入下班后的短暂停留，进入一个人与自己的身体重新熟悉的过程。</p>
+            <div class="inset-quote">运动并不承诺改变什么，但它提供一种秩序——在你无法控制生活其他部分时，至少可以控制一次呼吸、一次摆臂、一次落地。</div>
+            <p>从操场到客厅，从专业赛事到日常练习，体育的语法是共通的。MK体育记录这些语法在不同场景中的变体，不抬高也不贬低任何一种形式。</p>
+        </div>
+
+        <div class="essay-card">
+            <h2>数字之外的真实</h2>
+            <p>数据让体育变得可测量，但并非所有重要的事物都能被测量。一名跑者最后一百米的咬牙坚持，一次传球前零点几秒的犹豫，替补席上队友们同时站起的瞬间——这些细微的真实构成了体育中最动人的部分。它们无法被量化，却能被感知。</p>
+            <p>正因如此，在数据与算法日益占据话语权的时代，我们依然需要叙事。需要有人把那些不可测量的时刻记录下来，用文字固定住那些即将消散的现场。这也是MK体育持续存在的原因：不是为了提供更多信息，而是为了提供一种理解体育的不同方式。</p>
+        </div>
+    </div>
+
+    <!-- 提示框 + FAQ摘要感 -->
+    <div class="notice-box">
+        <span class="label">阅读提示</span>
+        <span>你可以把这个页面看作一本缓慢翻阅的杂志，不必一次读完，也无需记笔记。如果想进一步了解我们关注的体育世界，可以随时前往</span>
+        <a href="https://chinahome-mksports.com">MK体育</a>
+        <span>——那里有更完整的叙述与更安静的观察。</span>
+    </div>
+
+    <!-- 页尾访问提示 -->
+    <footer class="footer-note">
+        <div class="site-link">
+            <a href="https://chinahome-mksports.com">MK体育</a>
+        </div>
+        <div class="meta">运动不止一种讲述方式</div>
+    </footer>
+
+</div>
+</body>
+</html>
