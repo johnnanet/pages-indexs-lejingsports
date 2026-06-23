@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+    <title>MK体育 · 体育信息与赛事指南</title>
+    <style>
+        /* 极简留白 · 窄正文 · 清朗层级 */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: #fafbfc;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.65;
+            color: #1d2a3a;
+        }
+
+        .page-wrap {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 2.8rem 1.8rem 3.2rem;
+        }
+
+        /* ===== hero 区 ===== */
+        .hero {
+            margin-bottom: 3rem;
+        }
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            color: #0b1a2b;
+            margin-bottom: 1rem;
+        }
+        .hero p {
+            font-size: 1rem;
+            color: #3d4e62;
+            max-width: 580px;
+            margin-bottom: 1.5rem;
+        }
+        .hero-link {
+            display: inline-block;
+            font-size: 0.95rem;
+            background: transparent;
+            border: 1px solid #1d2a3a;
+            border-radius: 40px;
+            padding: 0.5rem 1.8rem;
+            color: #1d2a3a;
+            text-decoration: none;
+            font-weight: 500;
+            transition: .2s;
+        }
+        .hero-link:hover {
+            background: #1d2a3a;
+            color: #fff;
+        }
+
+        /* ===== 优势区 ===== */
+        .section-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #5f738a;
+            margin-bottom: 0.6rem;
+        }
+        .strengths {
+            display: flex;
+            flex-direction: column;
+            gap: 1.8rem;
+            margin: 2rem 0 2.6rem;
+        }
+        .strength-item {
+            border-left: 3px solid #d0d9e3;
+            padding-left: 1rem;
+        }
+        .strength-item h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+            color: #0b1a2b;
+        }
+        .strength-item p {
+            font-size: 0.9rem;
+            color: #3d4e62;
+            line-height: 1.55;
+        }
+
+        /* ===== 说明区 ===== */
+        .explain {
+            margin: 2.4rem 0 2rem;
+            padding: 1.6rem 0;
+            border-top: 1px solid #e3e9f0;
+            border-bottom: 1px solid #e3e9f0;
+        }
+        .explain h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            color: #0b1a2b;
+        }
+        .explain p {
+            font-size: 0.92rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        /* ===== FAQ 摘要 ===== */
+        .faq-summary {
+            margin: 2.6rem 0 2rem;
+        }
+        .faq-summary h2 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #0b1a2b;
+        }
+        .faq-item {
+            margin-bottom: 1.2rem;
+        }
+        .faq-item strong {
+            display: block;
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 0.25rem;
+            color: #1d2a3a;
+        }
+        .faq-item p {
+            font-size: 0.88rem;
+            color: #3d4e62;
+            margin: 0;
+        }
+
+        /* ===== 底部链接 ===== */
+        .footer-links {
+            margin-top: 2.8rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e3e9f0;
+            font-size: 0.85rem;
+            color: #4a5f74;
+        }
+        .footer-links a {
+            color: #1d2a3a;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 1px;
+            text-decoration-color: #b0c0d2;
+            transition: .15s;
+        }
+        .footer-links a:hover {
+            text-decoration-color: #1d2a3a;
+        }
+
+        /* 响应式 */
+        @media (max-width: 500px) {
+            .page-wrap { padding: 2rem 1.2rem 2.6rem; }
+            .hero h1 { font-size: 1.9rem; }
+            .strengths { gap: 1.4rem; }
+        }
+        @media (min-width: 800px) {
+            .hero h1 { font-size: 2.8rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrap">
+
+    <!-- HERO 区 -->
+    <div class="hero">
+        <h1>MK体育 · 聚合赛事信息与运动资讯</h1>
+        <p>围绕足球、篮球、网球及新兴体育项目，为关注者提供简明、可靠的赛事动态与背景解读。不渲染情绪，仅呈现信息。</p>
+        <a href="https://china-wap-mksports.com" class="hero-link">MK体育</a>
+    </div>
+
+    <!-- 优势区（差异化卡片） -->
+    <div class="section-label">核心特点</div>
+    <div class="strengths">
+        <div class="strength-item">
+            <h3>赛事覆盖面</h3>
+            <p>关注欧洲五大联赛、NBA、网球大满贯及亚非地区重要杯赛，同时收录电竞与格斗项目的关键节点。</p>
+        </div>
+        <div class="strength-item">
+            <h3>信息颗粒度</h3>
+            <p>每项赛事包含赛程、积分/排名、关键数据及伤病/转会摘要，避免无效冗余内容。</p>
+        </div>
+        <div class="strength-item">
+            <h3>场景适配</h3>
+            <p>桌面与移动端均保持窄正文布局，适合快速浏览与赛前准备。无弹窗干扰。</p>
+        </div>
+    </div>
+
+    <!-- 说明区（从主题展开） -->
+    <div class="explain">
+        <h2>从赛事到数据，一条简洁路径</h2>
+        <p>体育信息的价值在于及时与准确。平台以「赛事卡片」为基本单位，将时间、对阵、场地、裁判及实时新闻整合为结构化条目。用户可依据联赛或运动类别筛选，也可通过关键词直接定位某一场次。</p>
+        <p>对于深度关注者，每个赛项都附有近期交锋记录与积分走势图，辅助判断而非替代思考。不设预测、不推注单，专注呈现公开可查的竞技事实。</p>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-summary">
+        <h2>常见问题摘要</h2>
+        <div class="faq-item">
+            <strong>信息更新频率如何？</strong>
+            <p>主要赛事实时同步官方数据源，非赛期每日至少一次汇总；重大转会或赛程变更会在 24 小时内标注。</p>
+        </div>
+        <div class="faq-item">
+            <strong>是否包含亚洲或小众运动？</strong>
+            <p>除主流项目外，逐步覆盖羽毛球、斯诺克、自行车及部分综合运动会，未来会按反馈扩展。</p>
+        </div>
+        <div class="faq-item">
+            <strong>页面是否需要注册？</strong>
+            <p>目前所有资讯内容开放阅读，不要求登录。部分高级筛选功能正在测试中。</p>
+        </div>
+    </div>
+
+    <!-- 底部链接，自然嵌入句子 -->
+    <div class="footer-links">
+        <p>更多赛事数据与运动背景，可前往 <a href="https://china-wap-mksports.com">MK体育</a> 浏览。内容基于公开来源整理，仅供信息参考，不构成任何建议。页面持续迭代中。</p>
+    </div>
+
+</div>
+</body>
+</html>
